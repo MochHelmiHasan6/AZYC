@@ -10,7 +10,5 @@ class Produk extends Model
     use HasFactory;
     protected $table = "products";
     public $timestamps = true;
-    public $incrementing = false;
-    public $keyType = 'char';
     protected $fillable = ['id', 'name', 'image', 'description', 'price', 'slug'];
 }
