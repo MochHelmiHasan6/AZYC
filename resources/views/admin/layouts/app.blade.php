@@ -204,6 +204,13 @@
                             {{-- <div class="nav-item">
                                 <a href="{{route('dashboard.index')}}"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
                             </div> --}}
+                                
+                            <div
+                                class="nav-item {{Route::is('produk.index') || Route::is('produk.create') || Route::is('produk.edit') ? 'active' : ''}}">
+                                    <a href="{{route('produk.index')}}"
+                                        class="menu-item {{Route::is('produk.index') || Route::is('produk.create') || Route::is('produk.edit')  ? 'active' : ''}}"><i
+                                            class="mdi mdi-account"></i> Produk</a>
+                            </div>
 
                             <div
                                 class="nav-item {{Route::is('user.index') || Route::is('user.create') || Route::is('user.edit') ? 'active' : ''}}">
