@@ -49,12 +49,13 @@ Data Produk
                             <span class="input-group-prepend">
                                 <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
                             </span>
-                            <input type="text" class="form-control  " placeholder="Harga" id="price" required>
+                            <input type="text" class="form-control" placeholder="Harga" id="price" required>
                             <input type="hidden" name="price" class="price">
                         </div>
                     </div>
 
                     <img id="output" width="50%" />
+
                     <div class="form-group">
                         <label>Gambar Produk</label>
                         <div class="input-group">
@@ -66,6 +67,8 @@ Data Produk
                         </div>
                     </div>
 
+                    <input type="submit">
+
                     <div class="form-group">
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary"
@@ -75,12 +78,12 @@ Data Produk
                     </div>
 
                     <div class="footer-buttons">
-                        <a class="fixedButtonRefresh" href="{{route('produk.index')}}">
+                        {{-- <a class="fixedButtonRefresh" href="">
                             <button data-toggle="tooltip" data-placement="top" title="" type="button"
                                 class="btn btn-icon btn-secondary " data-original-title="Back">
                                 <i class="ik ik-arrow-left"></i>
                             </button>
-                        </a>
+                        </a> --}}
                         <a class="fixedButtonAdd">
                             <button data-toggle="tooltip" type="submit" data-placement="top" title="" href=""
                                 class="btn btn-icon btn-info" data-original-title="Tambah">

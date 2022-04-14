@@ -70,8 +70,9 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
+        dd('tes');
         $table = new Produk();
-        $table->id = Str::random(5);
+        $table->id = Str::random(10);
         $table->name = $request->name;
         $table->description = $request->description;
         $table->price = $request->price;
@@ -84,7 +85,7 @@ class ProdukController extends Controller
 
         $table->save();
 
-        return redirect()->route('produk.index');
+        // return redirect();
     }
 
     /**
@@ -146,7 +147,7 @@ class ProdukController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         $table = Produk::find($request->id);
         $table->delete();
