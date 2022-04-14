@@ -70,7 +70,6 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        dd('tes');
         $table = new Produk();
         $table->id = Str::random(10);
         $table->name = $request->name;
@@ -85,7 +84,7 @@ class ProdukController extends Controller
 
         $table->save();
 
-        // return redirect();
+        return redirect()->route('produk.index');
     }
 
     /**
