@@ -61,8 +61,7 @@ Data Produk
                             <span class="input-group-prepend">
                                 <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
                             </span>
-                            <input accept="image/*" onchange="loadFile(event)" type="file"
-                                class="form-control" name="image" required>
+                            <input accept="image/*" onchange="loadFile(event)" type="file" class="form-control" name="image">
                         </div>
                     </div>
 

@@ -120,10 +120,9 @@ class ProdukController extends Controller
     public function update(Request $request, $id)
     {
         $table = Produk::find($id);
-
         $table->name = $request->name;
-        $table->image = $request->image;
         $table->description = $request->description;
+        $table->image = $request->image;
         $table->price = $request->price;
         $table->slug = Str::slug($request->name);
 
