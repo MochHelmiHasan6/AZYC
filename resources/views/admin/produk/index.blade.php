@@ -39,6 +39,7 @@ Data Produk
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Price</th>
+                                        <th>Image</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,6 +50,7 @@ Data Produk
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Price</th>
+                                        <th>Image</th>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -152,6 +154,10 @@ Data Produk
                 {
                     data: 'price',
                     name: 'price'
+                },
+                {
+                    data: 'image',
+                    name: 'image'
                 },
             ]
         });

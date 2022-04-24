@@ -158,7 +158,7 @@
                     <div class="top-menu d-flex align-items-center">
                         <button type="button" class="btn-icon mobile-nav-toggle d-lg-none"><span></span></button>
                         {{-- <h5>Selamat Datang, {{Auth::user()->id}}</h5> --}}
-                        <h5>Selamat Datang, User!</h5>
+                        <h5>Selamat Datang, Admin!</h5>
                     </div>
                     <div class="top-menu d-flex align-items-center">
                         <button type="button" id="navbar-fullscreen" class="nav-link"><i
@@ -204,7 +204,7 @@
                             {{-- <div class="nav-item">
                                 <a href="{{route('dashboard.index')}}"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
                             </div> --}}
-                                
+
                             <div
                                 class="nav-item {{Route::is('produk.index') || Route::is('produk.create') || Route::is('produk.edit') ? 'active' : ''}}">
                                     <a href="{{route('produk.index')}}"

@@ -46,7 +46,15 @@ class ProdukController extends Controller
                             </td>';
                     return $btn;
                 })
-                ->rawColumns(['action'])
+                ->addColumn('description', function ($data) {
+                    $btn = '<td>'.html_entity_decode($data->description).'</td>';
+                    return $btn;
+                })
+                ->addColumn('image', function ($data) {
+                    $btn = '<td><img src="' . url($data->image) . '" width=200></td>';
+                    return $btn;
+                })
+                ->rawColumns(['action','description','image'])
                 ->make(true);
         }
         return view('admin.produk.index');
@@ -122,7 +130,6 @@ class ProdukController extends Controller
         $table = Produk::find($id);
         $table->name = $request->name;
         $table->description = $request->description;
-        $table->image = $request->image;
         $table->price = $request->price;
         $table->slug = Str::slug($request->name);
 
