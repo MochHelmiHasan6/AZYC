@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProdukController;
+use App\Http\Controllers\Admin\TransaksiController;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -17,6 +18,7 @@ Route::middleware(['auth:sanctum', 'verified', 'can:admin'])->group(function () 
         Route::resources([
             'user' => UserController::class,
             'produk' => ProdukController::class,
+            'transaksi' => TransaksiController::class,
         ]);
     });
 });
