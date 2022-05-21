@@ -191,7 +191,7 @@
                 <div class="sidebar-header">
                     <a class="header-brand" href="#">
                         <div class="logo-img">
-                            <img src="{{url('')}}" class="header-brand-img" alt="lavalite"
+                            <img src="{{url('assets/admin/img/logo_invert.png')}}" class="logo_invert" 
                                 width="500%">
                         </div>
                     </a>
