@@ -3,14 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProdukController;
+use App\Http\Controllers\ProduksController;
 use App\Http\Controllers\Admin\TransaksiController;
 use Illuminate\Support\Facades\Auth;
 
-
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', [ProduksController::class, 'index'])->name('pengguna.index');
 
 Route::middleware(['auth:sanctum', 'verified', 'can:admin'])->group(function () {
     Route::prefix('admin-page')->group(function () {
