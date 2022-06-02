@@ -136,17 +136,17 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="{{url('assets/frontend/img/numerator.jpg')}}" alt="">
+                            <img class="img-fluid" src="{{url('assets/frontend/img/IMG_1.jpg')}}" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left align-self-center">
-                                <h1 class="h1 text-success"><b>AZYC</b> Nomerator</h1>
-                                <h3 class="h2">Apa itu Numerator?</h3>
-                                <p>
+                                <h1 class="h1 text-success">Our <b>Client</b></h1>
+                                <h3 class="h2">HARRIS HOTEL & CONVENTIONS</h3>
+                                <!-- <p>
                                     <strong>Kearsipan numerator</strong> adalah alat untuk membubuhkan nomor pada lembaran dokumen (cap nomor).
                                     Dalam peralatan kearsipan, numerator dibutuhkan untuk membubuhkan nomor pada lembaran dokumen, tanpa harus mencetaknya dengan mesin printer.
                                     Pada bentuknya, terdapat nomorator bisa memiliki angka kecil atau besar, dan dengan jumlah digit tertentu.
-                                </p>
+                                </p> -->
                             </div>
                         </div>
                     </div>
@@ -156,16 +156,16 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="{{url('assets/frontend/img/porporasi.jpg')}}" alt="">
+                            <img class="img-fluid" src="{{url('assets/frontend/img/IMG_4.jpg')}}" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
-                                <h1 class="h1 text-success"><b>AZYC</b> Nomerator</h1>
-                                <h3 class="h2">Apa Itu Porporasi?</h3>
-                                <p>
+                                <h1 class="h1 text-success">Our <b>Client</b></h1>
+                                <h3 class="h2">LAPANGAN RAMPAL</h3>
+                                <!-- <p>
                                     <strong>Porporasi</strong> adalah deretan lubang yang digunakan untuk menyobek kertas agar potongan kertas sesuai pola porporasi.
                                     Biasanya porporasi sering ditemukan pada tiket, kuitansi, nota, karcis, dan lain-lain.
-                                </p>
+                                </p> -->
                             </div>
                         </div>
                     </div>
@@ -175,16 +175,16 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="{{url('assets/frontend/img/penjilidan.webp')}}" alt="">
+                            <img class="img-fluid" src="{{url('assets/frontend/img/IMG_7.jpg')}}" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
-                                <h1 class="h1 text-success"><b>AZYC</b> Nomerator</h1>
-                                <h3 class="h2">Apa itu Penjilidan</h3>
-                                <p>
+                                <h1 class="h1 text-success">Our <b>Client</b></h1>
+                                <h3 class="h2">PANTAI WISATA BALEKAMBANG</h3>
+                                <!-- <p>
                                     <strong>Penjilidan</strong> adalah proses menyatukan rangkaian kertas-kertas secara berurutan ke dalam bentuk buku,
                                     adakalanya disatukan terlebih dahulu per bagiannya/bloknya untuk kemudian disatukan, ataupun langsung dari satu per satu kertasnya.
-                                </p>
+                                </p> -->
                             </div>
                         </div>
                     </div>
@@ -194,16 +194,16 @@ https://templatemo.com/tm-559-zay-shop
                 <div class="container">
                     <div class="row p-5">
                         <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="./assets/img/banner_img_03.jpg" alt="">
+                            <img class="img-fluid" src="./assets/frontend/img/IMG_8.jpg" alt="">
                         </div>
                         <div class="col-lg-6 mb-0 d-flex align-items-center">
                             <div class="text-align-left">
-                                <h1 class="h1 text-success"><b>AZYC</b> Nomerator</h1>
-                                <h3 class="h2">Apa itu Percetakan?</h3>
-                                <p>
+                                <h1 class="h1 text-success">Our <b>Client</b></h1>
+                                <h3 class="h2">SEKOLAH KRISTEN PAMERDI</h3>
+                                <!-- <p>
                                     <strong>Percetakan</strong> adalah sebuah proses industri untuk memproduksi secara massal tulisan dan gambar, terutama dengan tinta di atas kertas menggunakan sebuah mesin cetak.
                                     Percetakan merupakan sebuah bagian penting dalam penerbitan dan percetakan transaksi.
-                                </p>
+                                </p> -->
                             </div>
                         </div>
                     </div>
