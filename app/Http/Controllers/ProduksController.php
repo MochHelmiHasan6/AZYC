@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produk;
 
 class ProduksController extends Controller
 {
+    public function jasa($id){
+        $jasa= Produk::find($id);
+        return view('user.layout.app',['user.layout.app'=>$jasa]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +18,8 @@ class ProduksController extends Controller
      */
     public function index()
     {
-        return view('user.layout.app');
+        $jasa = Produk::paginate(5);
+        return view('user.layout.app', compact('jasa'));
     }
 
     /**
