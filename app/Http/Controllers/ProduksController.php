@@ -9,7 +9,12 @@ class ProduksController extends Controller
 {
     public function jasa($id){
         $jasa= Produk::find($id);
-        return view('user.layout.app',['user.layout.app'=>$jasa]);
+        return view('user.beranda',['jasa'=>$jasa]);
+    }
+
+    public function transaksi($id){
+        $jasa = Produk::where('slug','=',$id)->first();
+        return view('user.transaksi', compact('jasa'));
     }
     /**
      * Display a listing of the resource.
@@ -19,7 +24,7 @@ class ProduksController extends Controller
     public function index()
     {
         $jasa = Produk::paginate(5);
-        return view('user.layout.app', compact('jasa'));
+        return view('user.beranda', compact('jasa'));
     }
 
     /**

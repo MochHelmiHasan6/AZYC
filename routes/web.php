@@ -7,7 +7,8 @@ use App\Http\Controllers\ProduksController;
 use App\Http\Controllers\Admin\TransaksiController;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', [ProduksController::class, 'index'])->name('pengguna.index');
+Route::get('/beranda', [ProduksController::class, 'index'])->name('pengguna.index');
+Route::get('/detail-transaksi/{id}', [ProduksController::class, 'transaksi'])->name('transaksi');
 
 Route::middleware(['auth:sanctum', 'verified', 'can:admin'])->group(function () {
     Route::prefix('admin-page')->group(function () {
