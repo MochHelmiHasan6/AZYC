@@ -3,13 +3,13 @@
 <link rel="stylesheet" href="{{url('assets/admin/plugins/select2/dist/css/select2.min.css')}}">
 @endsection
 @section('titleHeader')
-Data Produk
+Data Jasa
 @endsection
 @section('subtitleHeader')
-Tambah Produk
+Tambah Jasa
 @endsection
 @section('breadcrumb')
-Data Produk
+Data Jasa
 @endsection
 @section('content-wrapper')
 <input class="js-dynamic-enable" type="hidden"/>
@@ -27,7 +27,7 @@ Data Produk
                     @csrf
 
                     <div class="form-group">
-                        <label>Nama Produk</label>
+                        <label>Nama Jasa</label>
                         <div class="input-group">
                             <span class="input-group-prepend">
                                 <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
@@ -56,7 +56,7 @@ Data Produk
                     <img id="output" width="50%" />
 
                     <div class="form-group">
-                        <label>Gambar Produk</label>
+                        <label>Gambar Jasa</label>
                         <div class="input-group">
                             <span class="input-group-prepend">
                                 <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
@@ -123,7 +123,7 @@ Data Produk
             resetToastPosition();
             $.toast({
                 heading: 'Success',
-                text: 'Produk berhasil ditambahkan',
+                text: 'Jasa berhasil ditambahkan',
                 showHideTransition: 'slide',
                 icon: 'success',
                 loaderBg: '#f96868',
@@ -147,7 +147,7 @@ Data Produk
                     var percentage = '0';
                     uploadSuccess();
                     setTimeout(function () {
-                        window.location.href = SITEURL + "/" + "admin-page/produk";
+                        window.location.href = SITEURL + "/" + "admin-page/jasa";
                     }, 3000);
                 }
             });

@@ -209,7 +209,7 @@
                                 class="nav-item {{Route::is('produk.index') || Route::is('produk.create') || Route::is('produk.edit') ? 'active' : ''}}">
                                     <a href="{{route('produk.index')}}"
                                         class="menu-item {{Route::is('produk.index') || Route::is('produk.create') || Route::is('produk.edit')  ? 'active' : ''}}"><i
-                                            class="mdi mdi-view-list"></i> Produk</a>
+                                            class="mdi mdi-view-list"></i> Jasa</a>
                             </div>
 
                             <div

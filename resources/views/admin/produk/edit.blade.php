@@ -3,13 +3,13 @@
 <link rel="stylesheet" href="{{url('assets/admin/plugins/select2/dist/css/select2.min.css')}}">
 @endsection
 @section('titleHeader')
-Produk
+Jasa
 @endsection
 @section('subtitleHeader')
-Edit Produk
+Edit Jasa
 @endsection
 @section('breadcrumb')
-Produk
+Jasa
 @endsection
 @section('content-wrapper')
 <input class="js-dynamic-enable" type="hidden"/>
@@ -28,7 +28,7 @@ Produk
                     @method('PUT')
 
                     <div class="form-group">
-                        <label>Nama Produk</label>
+                        <label>Nama Jasa</label>
                         <div class="input-group">
                             <span class="input-group-prepend">
                                 <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
@@ -58,7 +58,7 @@ Produk
                     <img src="{{url($data->image)}}" id="output" width="50%"/>
 
                     <div class="form-group">
-                        <label>Gambar Produk</label>
+                        <label>Gambar Jasa</label>
                         <div class="input-group">
                             <span class="input-group-prepend">
                                 <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
@@ -125,7 +125,7 @@ Produk
             resetToastPosition();
             $.toast({
                 heading: 'Success',
-                text: 'Produk berhasil diperbarui',
+                text: 'Jasa berhasil diperbarui',
                 showHideTransition: 'slide',
                 icon: 'success',
                 loaderBg: '#f96868',
