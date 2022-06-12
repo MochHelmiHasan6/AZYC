@@ -11,9 +11,29 @@
         <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
         <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
         <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="3"></li>
+        <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="4"></li>
     </ol>
     <div class="carousel-inner">
-        <div class="carousel-item active">
+    <div class="carousel-item active">
+            <div class="container">
+                <div class="row p-5">
+                    <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                        <img class="img-fluid" src="{{url('assets/frontend/img/office.jpeg')}}" alt="">
+                    </div>
+                    <div class="col-lg-6 mb-0 d-flex align-items-center">
+                        <div class="text-align-left align-self-center">
+                            <h1 class="h1 text-success">Our <b>Office</b></h1>
+                            <h3 class="h2">AZYC NOMERATOR</h3>
+                            <p>
+                                <strong>Alamat:</strong> Jl. Raya Ki Ageng Gribig No.234, Madyopuro, 
+                                Kec. Kedungkandang, Kota Malang, Jawa Timur 65138
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
             <div class="container">
                 <div class="row p-5">
                     <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
