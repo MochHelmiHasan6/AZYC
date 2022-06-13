@@ -25,7 +25,7 @@
                             <h1 class="h1 text-success">Our <b>Office</b></h1>
                             <h3 class="h2">AZYC NOMERATOR</h3>
                             <p>
-                                <strong>Alamat:</strong> Jl. Raya Ki Ageng Gribig No.234, Madyopuro, 
+                                <strong>Alamat:</strong> Jl. Raya Ki Ageng Gribig No.234, Madyopuro,
                                 Kec. Kedungkandang, Kota Malang, Jawa Timur 65138
                             </p>
                         </div>
@@ -137,7 +137,7 @@
         <div class="col-12 col-md-3 p-5 mt-3">
             <a href="{{ route('transaksi',$data->slug) }}"><img src="{{$data->image}}" class="rounded" width="250" height="125"></a>
             <h5 class="text-center mt-3 mb-3">{{$data->name}}</h5>
-            <p class="text-center"><a class="btn btn-success">RP. {{$data->price}}</a></p>
+            <p class="text-center"><a class="btn btn-success" href="{{ route('transaksi',$data->slug) }}">RP. {{$data->price}}</a></p>
         </div>
         @endforeach
     </div>

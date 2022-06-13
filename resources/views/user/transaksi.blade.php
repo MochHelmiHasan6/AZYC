@@ -33,8 +33,8 @@
                                 </li>
                             </ul>
 
-                            <h6>Description:</h6>
-                            <p>{{$jasa->description}}</p>
+                            <h6>Deskripsi:</h6>
+                            <p>{!! html_entity_decode($jasa->description) !!}</p>
                             {{-- <ul class="list-inline">
                                 <li class="list-inline-item">
                                     <h6>Avaliable Color :</h6>
@@ -70,12 +70,12 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="row pb-3">
-                                    <div class="col d-grid">
+                                <div class="row pb-6">
+                                    {{-- <div class="col d-grid">
                                         <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Buy</button>
-                                    </div>
+                                    </div> --}}
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Add To Cart</button>
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Tambah ke Keranjang</button>
                                     </div>
                                 </div>
                             </form>
