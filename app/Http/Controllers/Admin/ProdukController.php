@@ -46,7 +46,15 @@ class ProdukController extends Controller
                             </td>';
                     return $btn;
                 })
-                ->rawColumns(['action'])
+                ->addColumn('description', function ($data) {
+                    $btn = '<td>'.html_entity_decode($data->description).'</td>';
+                    return $btn;
+                })
+                ->addColumn('image', function ($data) {
+                    $btn = '<td><img src="' . url($data->image) . '" width=200></td>';
+                    return $btn;
+                })
+                ->rawColumns(['action','description','image'])
                 ->make(true);
         }
         return view('admin.produk.index');
@@ -70,7 +78,6 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        dd('tes');
         $table = new Produk();
         $table->id = Str::random(10);
         $table->name = $request->name;
@@ -85,7 +92,7 @@ class ProdukController extends Controller
 
         $table->save();
 
-        // return redirect();
+        return redirect()->route('produk.index');
     }
 
     /**
@@ -121,9 +128,7 @@ class ProdukController extends Controller
     public function update(Request $request, $id)
     {
         $table = Produk::find($id);
-
         $table->name = $request->name;
-        $table->image = $request->image;
         $table->description = $request->description;
         $table->price = $request->price;
         $table->slug = Str::slug($request->name);

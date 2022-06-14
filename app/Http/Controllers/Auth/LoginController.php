@@ -31,7 +31,7 @@ class LoginController extends Controller
     public function redirectTo()
     {
         if (Auth::user()->role == 'user') {
-            return $this->redirectTo = route('login');
+            return $this->redirectTo = route('pengguna.index');
         } else if (Auth::user()->role == 'admin') {
             return $this->redirectTo = route('admin.index');
         }

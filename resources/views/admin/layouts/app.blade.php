@@ -158,7 +158,7 @@
                     <div class="top-menu d-flex align-items-center">
                         <button type="button" class="btn-icon mobile-nav-toggle d-lg-none"><span></span></button>
                         {{-- <h5>Selamat Datang, {{Auth::user()->id}}</h5> --}}
-                        <h5>Selamat Datang, User!</h5>
+                        <h5>Selamat Datang, Admin!</h5>
                     </div>
                     <div class="top-menu d-flex align-items-center">
                         <button type="button" id="navbar-fullscreen" class="nav-link"><i
@@ -191,7 +191,7 @@
                 <div class="sidebar-header">
                     <a class="header-brand" href="#">
                         <div class="logo-img">
-                            <img src="{{url('')}}" class="header-brand-img" alt="lavalite"
+                            <img src="{{url('assets/admin/img/logo_invert.png')}}" class="logo_invert" 
                                 width="500%">
                         </div>
                     </a>
@@ -204,12 +204,19 @@
                             {{-- <div class="nav-item">
                                 <a href="{{route('dashboard.index')}}"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
                             </div> --}}
-                                
+
                             <div
                                 class="nav-item {{Route::is('produk.index') || Route::is('produk.create') || Route::is('produk.edit') ? 'active' : ''}}">
                                     <a href="{{route('produk.index')}}"
                                         class="menu-item {{Route::is('produk.index') || Route::is('produk.create') || Route::is('produk.edit')  ? 'active' : ''}}"><i
-                                            class="mdi mdi-account"></i> Produk</a>
+                                            class="mdi mdi-view-list"></i> Jasa</a>
+                            </div>
+
+                            <div
+                                class="nav-item {{Route::is('transaksi.index') || Route::is('transaksi.create') || Route::is('transaksi.edit') ? 'active' : ''}}">
+                                    <a href="{{route('transaksi.index')}}"
+                                        class="menu-item {{Route::is('transaksi.index') || Route::is('transaksi.create') || Route::is('transaksi.edit')  ? 'active' : ''}}"><i
+                                            class="mdi mdi-credit-card"></i> Transaksi</a>
                             </div>
 
                             <div

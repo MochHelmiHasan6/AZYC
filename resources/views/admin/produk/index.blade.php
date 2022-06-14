@@ -15,13 +15,13 @@
 <i class="mdi mdi-sitemap bg-inverse"></i>
 @endsection
 @section('titleHeader')
-Data Produk
+Data Jasa
 @endsection
 @section('subtitleHeader')
-Data Produk
+Data Jasa
 @endsection
 @section('breadcrumb')
-Data Produk
+Data Jasa
 @endsection
 @section('content-wrapper')
 <!-- Content Wrapper. Contains page content -->
@@ -39,6 +39,7 @@ Data Produk
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Price</th>
+                                        <th>Image</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -49,6 +50,7 @@ Data Produk
                                         <th>Name</th>
                                         <th>Description</th>
                                         <th>Price</th>
+                                        <th>Image</th>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -152,6 +154,10 @@ Data Produk
                 {
                     data: 'price',
                     name: 'price'
+                },
+                {
+                    data: 'image',
+                    name: 'image'
                 },
             ]
         });

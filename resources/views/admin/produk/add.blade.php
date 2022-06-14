@@ -3,13 +3,13 @@
 <link rel="stylesheet" href="{{url('assets/admin/plugins/select2/dist/css/select2.min.css')}}">
 @endsection
 @section('titleHeader')
-Data Produk
+Data Jasa
 @endsection
 @section('subtitleHeader')
-Tambah Produk
+Tambah Jasa
 @endsection
 @section('breadcrumb')
-Data Produk
+Data Jasa
 @endsection
 @section('content-wrapper')
 <input class="js-dynamic-enable" type="hidden"/>
@@ -22,12 +22,12 @@ Data Produk
     <div class="col-sm-12" style="margin-bottom:20%">
         <div class="card">
             <div class="box-body" style="padding-bottom:50px">
-                <form id="fileUploadForm" class="text-left border border-light p-5" action="{{route('produk.store')}}" method="POST"
+                <form class="text-left border border-light p-5" action="{{route('produk.store')}}" method="POST"
                     enctype="multipart/form-data" style="padding-bottom: 50px;">
                     @csrf
 
                     <div class="form-group">
-                        <label>Nama Produk</label>
+                        <label>Nama Jasa</label>
                         <div class="input-group">
                             <span class="input-group-prepend">
                                 <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
@@ -49,25 +49,21 @@ Data Produk
                             <span class="input-group-prepend">
                                 <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
                             </span>
-                            <input type="text" class="form-control" placeholder="Harga" id="price" required>
-                            <input type="hidden" name="price" class="price">
+                            <input type="text" class="form-control" name="price" placeholder="Harga" required>
                         </div>
                     </div>
 
                     <img id="output" width="50%" />
 
                     <div class="form-group">
-                        <label>Gambar Produk</label>
+                        <label>Gambar Jasa</label>
                         <div class="input-group">
                             <span class="input-group-prepend">
                                 <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
                             </span>
-                            <input accept="image/*" onchange="loadFile(event)" id="image" type="file"
-                                class="form-control" name="image" required>
+                            <input accept="image/*" onchange="loadFile(event)" type="file" class="form-control" name="image">
                         </div>
                     </div>
-
-                    <input type="submit">
 
                     <div class="form-group">
                         <div class="progress">
@@ -78,12 +74,12 @@ Data Produk
                     </div>
 
                     <div class="footer-buttons">
-                        {{-- <a class="fixedButtonRefresh" href="">
+                        <a class="fixedButtonRefresh" href="">
                             <button data-toggle="tooltip" data-placement="top" title="" type="button"
                                 class="btn btn-icon btn-secondary " data-original-title="Back">
                                 <i class="ik ik-arrow-left"></i>
                             </button>
-                        </a> --}}
+                        </a>
                         <a class="fixedButtonAdd">
                             <button data-toggle="tooltip" type="submit" data-placement="top" title="" href=""
                                 class="btn btn-icon btn-info" data-original-title="Tambah">
@@ -127,7 +123,7 @@ Data Produk
             resetToastPosition();
             $.toast({
                 heading: 'Success',
-                text: 'Produk berhasil ditambahkan',
+                text: 'Jasa berhasil ditambahkan',
                 showHideTransition: 'slide',
                 icon: 'success',
                 loaderBg: '#f96868',
@@ -151,7 +147,7 @@ Data Produk
                     var percentage = '0';
                     uploadSuccess();
                     setTimeout(function () {
-                        window.location.href = SITEURL + "/" + "admin-page/produk";
+                        window.location.href = SITEURL + "/" + "admin-page/jasa";
                     }, 3000);
                 }
             });

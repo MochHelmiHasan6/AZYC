@@ -3,13 +3,13 @@
 <link rel="stylesheet" href="{{url('assets/admin/plugins/select2/dist/css/select2.min.css')}}">
 @endsection
 @section('titleHeader')
-Produk
+Jasa
 @endsection
 @section('subtitleHeader')
-Edit Produk
+Edit Jasa
 @endsection
 @section('breadcrumb')
-Produk
+Jasa
 @endsection
 @section('content-wrapper')
 <input class="js-dynamic-enable" type="hidden"/>
@@ -22,19 +22,18 @@ Produk
     <div class="col-sm-12" style="margin-bottom:20%">
         <div class="card">
             <div class="box-body" style="padding-bottom:50px">
-                <form id="fileUploadForm" class="text-left border border-light p-5" action="{{route('produk.update',$data->id)}}" method="POST"
+                <form class="text-left border border-light p-5" action="{{route('produk.update',$data->id)}}" method="POST"
                     enctype="multipart/form-data" style="padding-bottom: 50px;">
                     @csrf
                     @method('PUT')
 
                     <div class="form-group">
-                        <label>Nama Produk</label>
+                        <label>Nama Jasa</label>
                         <div class="input-group">
                             <span class="input-group-prepend">
                                 <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
                             </span>
-                            <input type="text" class="form-control  " placeholder="Nama"
-                                name="name" value="{{$data->name}}">
+                            <input type="text" class="form-control" placeholder="Nama" name="name" value="{{$data->name}}">
                         </div>
                     </div>
 
@@ -42,7 +41,7 @@ Produk
                         <label>Deskripsi</label>
                         <input type="hidden"
                             class="js-inverse js-danger js-warning js-info js-single js-switch js-dynamic-state js-default js-primary js-success js-single js-switch js-dynamic-state js-default js-primary js-success">
-                        <textarea name="description" class="form-control html-editor" rows="5"value="{{$data->description}}"></textarea>
+                        <textarea name="description" class="form-control html-editor" rows="5">{{$data->description}}</textarea>
                     </div>
 
                     <div class="form-group">
@@ -51,21 +50,20 @@ Produk
                             <span class="input-group-prepend">
                                 <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
                             </span>
-                            <input type="text" class="form-control  " placeholder="Harga" id="price" required>
-                            <input type="hidden" name="price" class="price" value="{{$data->price}}">
+                            {{-- <input type="text" class="form-control" placeholder="Harga" name="price" value="{{$data->price}}" required> --}}
+                            <input type="text" class="form-control" name="price" placeholder="Harga" value="{{$data->price}}">
                         </div>
                     </div>
 
                     <img src="{{url($data->image)}}" id="output" width="50%"/>
 
                     <div class="form-group">
-                        <label>Gambar Produk</label>
+                        <label>Gambar Jasa</label>
                         <div class="input-group">
                             <span class="input-group-prepend">
                                 <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
                             </span>
-                            <input accept="image/*" onchange="loadFile(event)" id="image" type="file" class="form-control"
-                                name="image">
+                            <input accept="image/*" onchange="loadFile(event)" type="file" class="form-control" name="image">
                         </div>
                     </div>
 
@@ -127,7 +125,7 @@ Produk
             resetToastPosition();
             $.toast({
                 heading: 'Success',
-                text: 'Produk berhasil diperbarui',
+                text: 'Jasa berhasil diperbarui',
                 showHideTransition: 'slide',
                 icon: 'success',
                 loaderBg: '#f96868',
