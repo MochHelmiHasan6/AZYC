@@ -17,16 +17,19 @@ class CartDetail extends Model
         'total',
     ];
 
-    public function cart() {
+    public function cart()
+    {
         return $this->belongsTo('App\Models\Cart', 'cart_id');
     }
 
-    public function produk() {
+    public function produk()
+    {
         return $this->belongsTo('App\Models\Produk', 'produk_id');
     }
 
     // function untuk update qty, sama subtotal
-    public function updatedetail($itemdetail, $qty, $harga) {
+    public function updatedetail($itemdetail, $qty, $harga)
+    {
         $this->attributes['qty'] = $itemdetail->qty + $qty;
         $this->attributes['total'] = $itemdetail->total + ($qty * $harga);
         self::save();

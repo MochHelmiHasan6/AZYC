@@ -17,15 +17,20 @@ class Cart extends Model
         'total',
     ];
 
-    public function user() {
-        return $this->belongsTo('App\Models\User','user_id');
+    public $incrementing = true;
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
 
-    public function detail() {
+    public function detail()
+    {
         return $this->hasMany('App\Models\CartDetail', 'cart_id');
     }
 
-    public function updatetotal($itemcart, $total) {
+    public function updatetotal($itemcart, $total)
+    {
         $this->attributes['total'] = $itemcart->total + $total;
         self::save();
     }

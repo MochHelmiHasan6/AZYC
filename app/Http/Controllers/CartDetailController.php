@@ -44,8 +44,8 @@ class CartDetailController extends Controller
         $itemproduk = Produk::findOrFail($request->produk_id);
         // cek dulu apakah sudah ada shopping cart untuk user yang sedang login
         $cart = Cart::where('user_id', $itemuser->id)
-                    ->where('status_cart', 'cart')
-                    ->first();
+            ->where('status_cart', 'cart')
+            ->first();
 
         if ($cart) {
             $itemcart = $cart;
@@ -53,17 +53,17 @@ class CartDetailController extends Controller
             $no_invoice = Cart::where('user_id', $itemuser->id)->count();
             //nyari jumlah cart berdasarkan user yang sedang login untuk dibuat no invoice
             $inputancart['user_id'] = $itemuser->id;
-            $inputancart['no_invoice'] = 'INV '.str_pad(($no_invoice + 1),'3', '0', STR_PAD_LEFT);
+            $inputancart['no_invoice'] = 'INV ' . str_pad(($no_invoice + 1), '3', '0', STR_PAD_LEFT);
             $inputancart['status_cart'] = 'cart';
             $inputancart['status_pembayaran'] = 'belum';
             $itemcart = Cart::create($inputancart);
         }
         // cek dulu apakah sudah ada produk di shopping cart
         $cekdetail = CartDetail::where('cart_id', $itemcart->id)
-                                ->where('produk_id', $itemproduk->id)
-                                ->first();
-        $qty = 1;// diisi 1, karena kita set ordernya 1
-        $harga = $itemproduk->price;//ambil harga produk
+            ->where('produk_id', $itemproduk->id)
+            ->first();
+        $qty = 1; // diisi 1, karena kita set ordernya 1
+        $harga = $itemproduk->price; //ambil harga produk
         $total = ($qty * $harga);
         // diskon diambil kalo produk itu ada promo, cek materi sebelumnya
         if ($cekdetail) {
@@ -130,9 +130,9 @@ class CartDetailController extends Controller
         if ($param == 'kurang') {
             // update detail cart
             $qty = 1;
-            $itemdetail->updatedetail($itemdetail, '-'.$qty, $itemdetail->harga);
+            $itemdetail->updatedetail($itemdetail, '-' . $qty, $itemdetail->harga);
             // update total cart
-            $itemdetail->cart->updatetotal($itemdetail->cart, '-'.$itemdetail->harga );
+            $itemdetail->cart->updatetotal($itemdetail->cart, '-' . $itemdetail->harga);
             return back()->with('success', 'Item berhasil diupdate');
         }
     }
@@ -147,7 +147,7 @@ class CartDetailController extends Controller
     {
         $itemdetail = CartDetail::findOrFail($id);
         // update total cart dulu
-        $itemdetail->cart->updatetotal($itemdetail->cart, '-'.$itemdetail->total);
+        $itemdetail->cart->updatetotal($itemdetail->cart, '-' . $itemdetail->total);
         if ($itemdetail->delete()) {
             return back()->with('success', 'Item berhasil dihapus');
         } else {

@@ -9,7 +9,9 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartDetailController;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function() { return view('auth.login'); });
+Route::get('/', function () {
+    return redirect()->route('pengguna.index');
+});
 
 Route::middleware(['auth:sanctum', 'verified', 'can:admin'])->group(function () {
     Route::prefix('admin-page')->group(function () {
@@ -28,6 +30,7 @@ Route::middleware(['auth:sanctum', 'verified', 'can:user'])->group(function () {
     })->name('dashboard');
     Route::get('/beranda', [ProduksController::class, 'index'])->name('pengguna.index');
     Route::get('/detail-transaksi/{id}', [ProduksController::class, 'transaksi'])->name('transaksi');
+    Route::post('/updateQtyCart', [CartDetailController::class, 'updateQtyCart'])->name('updateQtyCart');
     Route::resource('cart', CartController::class);
     Route::patch('kosongkan/{id}', 'CartController@kosongkan');
     // cart detail

@@ -18,10 +18,13 @@ class CartController extends Controller
     {
         // $itemuser = $request->user();//ambil data user
         $cart = Cart::where('user_id', Auth::user()->id)
-                        ->where('status_cart', 'cart')
-                        ->first();
+            ->where('status_cart', 'cart')
+            ->first();
 
-        $itemcart = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')->get();
+        $itemcart = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
+            ->select('cart_details.id as id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
+            ->get();
+
         // dd($itemcart);
         $data = array('title' => 'Shopping Cart', 'itemcart' => $itemcart, 'cart' => $cart);
 
@@ -93,9 +96,10 @@ class CartController extends Controller
     {
         //
     }
-    public function kosongkan($id) {
+    public function kosongkan($id)
+    {
         $itemcart = Cart::findOrFail($id);
-        $itemcart->detail()->delete();//hapus semua item di cart detail
+        $itemcart->detail()->delete(); //hapus semua item di cart detail
         return back()->with('success', 'Cart berhasil dikosongkan');
     }
 }
