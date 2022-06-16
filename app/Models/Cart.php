@@ -13,8 +13,6 @@ class Cart extends Model
         'user_id',
         'no_invoice',
         'status_cart',
-        'status_pembayaran',
-        'total',
     ];
 
     public $incrementing = true;
@@ -29,9 +27,9 @@ class Cart extends Model
         return $this->hasMany('App\Models\CartDetail', 'cart_id');
     }
 
-    public function updatetotal($itemcart, $total)
-    {
-        $this->attributes['total'] = $itemcart->total + $total;
-        self::save();
-    }
+    // public function updatetotal($itemcart, $total)
+    // {
+    //     $this->attributes['total'] = $itemcart->total + $total;
+    //     self::save();
+    // }
 }
