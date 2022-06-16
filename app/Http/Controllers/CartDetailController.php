@@ -55,7 +55,7 @@ class CartDetailController extends Controller
             $inputancart['user_id'] = $itemuser->id;
             $inputancart['no_invoice'] = 'INV ' . str_pad(($no_invoice + 1), '3', '0', STR_PAD_LEFT);
             $inputancart['status_cart'] = 'cart';
-            $inputancart['status_pembayaran'] = 'belum';
+            // $inputancart['status_pembayaran'] = 'belum';
             $itemcart = Cart::create($inputancart);
         }
         // cek dulu apakah sudah ada produk di shopping cart
@@ -70,17 +70,17 @@ class CartDetailController extends Controller
             // update detail di table cart_detail
             $cekdetail->updatedetail($cekdetail, $qty, $harga);
             // update subtotal dan total di table cart
-            $cekdetail->cart->updatetotal($cekdetail->cart, $total);
+            // $cekdetail->cart->updatetotal($cekdetail->cart, $total);
         } else {
             $inputan = $request->all();
             $inputan['cart_id'] = $itemcart->id;
             $inputan['produk_id'] = $itemproduk->id;
             $inputan['qty'] = $qty;
             $inputan['harga'] = $harga;
-            $inputan['total'] = ($harga * $qty);
-            $itemdetail = CartDetail::create($inputan);
+            $inputan['total'] = $total;
+            // $itemdetail = CartDetail::create($inputan);
             // update subtotal dan total di table cart
-            $itemdetail->cart->updatetotal($itemdetail->cart, $total);
+            // $itemdetail->cart->updatetotal($itemdetail->cart, $total);
         }
         return redirect()->route('cart.index')->with('success', 'Produk berhasil ditambahkan ke cart');
     }
@@ -124,7 +124,7 @@ class CartDetailController extends Controller
             $qty = 1;
             $itemdetail->updatedetail($itemdetail, $qty, $itemdetail->harga);
             // update total cart
-            $itemdetail->cart->updatetotal($itemdetail->cart, $itemdetail->harga);
+            // $itemdetail->cart->updatetotal($itemdetail->cart, $itemdetail->harga);
             return back()->with('success', 'Item berhasil diupdate');
         }
         if ($param == 'kurang') {
@@ -132,7 +132,7 @@ class CartDetailController extends Controller
             $qty = 1;
             $itemdetail->updatedetail($itemdetail, '-' . $qty, $itemdetail->harga);
             // update total cart
-            $itemdetail->cart->updatetotal($itemdetail->cart, '-' . $itemdetail->harga);
+            // $itemdetail->cart->updatetotal($itemdetail->cart, '-' . $itemdetail->harga);
             return back()->with('success', 'Item berhasil diupdate');
         }
     }

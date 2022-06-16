@@ -1,4 +1,3 @@
-
 @extends('user.layout.app')
 @section('header')
 @endsection
@@ -107,7 +106,8 @@
             <tr>
               <td>Total</td>
               <td class="text-right">
-                {{ number_format($cart->total, 2) }}
+                {{ number_format($total, 2) }}
+                {{-- <input type="hidden" name="paid_total" value="{{$total}}"> --}}
               </td>
             </tr>
           </table>
@@ -115,11 +115,12 @@
         <div class="card-footer">
           <div class="row">
             <div class="col">
-              <button class="btn btn-primary btn-block">Checkout</button>
+                <a href="{{ url('checkout').'/'.$cart->id }}" class="btn btn-primary btn-block">
+                    Checkout
+                </a>
             </div>
             <div class="col">
               <form action="{{ url('kosongkan').'/'.$cart->id }}" method="post">
-                @method('patch')
                 @csrf()
                 <button type="submit" class="btn btn-danger btn-block">Kosongkan</button>
               </form>

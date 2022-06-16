@@ -29,12 +29,14 @@ Route::middleware(['auth:sanctum', 'verified', 'can:user'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
     Route::get('/beranda', [ProduksController::class, 'index'])->name('pengguna.index');
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::get('/detail-transaksi/{id}', [ProduksController::class, 'transaksi'])->name('transaksi');
     Route::post('/updateQtyCart', [CartDetailController::class, 'updateQtyCart'])->name('updateQtyCart');
     Route::resource('cart', CartController::class);
-    Route::patch('kosongkan/{id}', 'CartController@kosongkan');
+    Route::post('/kosongkan/{id}', [CartController::class, 'kosongkan'])->name('kosongkan');
     // cart detail
     Route::resource('cartdetail', CartDetailController::class);
+
 });
 
 Auth::routes();
