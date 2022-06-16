@@ -55,8 +55,9 @@
                                 <li>Excepteur sint</li>
                             </ul> --}}
 
-                            <form action="" method="GET">
-                                <input type="hidden" name="product-title" value="Activewear">
+                            <form action="{{ route('cartdetail.store') }}" method="POST">
+                                @csrf
+                                {{-- <input type="hidden" name="product-title" value="Activewear">
                                 <div class="row">
                                     <div class="col-auto">
                                         <ul class="list-inline pb-3">
@@ -69,13 +70,14 @@
                                             <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="row pb-6">
                                     {{-- <div class="col d-grid">
                                         <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Buy</button>
                                     </div> --}}
                                     <div class="col d-grid">
-                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Tambah ke Keranjang</button>
+                                        <input type="hidden" name="produk_id" value={{$jasa->id}}>
+                                        <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-cart-arrow-down"></i> Tambah ke Keranjang</button>
                                     </div>
                                 </div>
                             </form>

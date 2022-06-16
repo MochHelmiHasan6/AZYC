@@ -82,7 +82,7 @@
                         <i class="fa fa-fw fa-search text-dark mr-2"></i>
                     </a> --}}
                     <a class="nav-icon position-relative text-decoration-none" href="#">
-                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <i class="fa fa-fw fa-shopping-cart text-dark mr-1"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                         Keranjang
                     </a>
@@ -114,6 +114,14 @@
             </form>
         </div>
     </div>
+
+    {{-- main content --}}
+    <div class="container py-5">
+        <div class="row">
+            @yield('content')
+        </div>
+    </div>
+
 
     <!-- Start Footer -->
     <footer class="bg-dark" id="tempaltemo_footer">
