@@ -21,7 +21,7 @@ class CartController extends Controller
             ->where('status_cart', 'cart')
             ->first();
 
-$carts = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
+        $carts = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
             ->select('cart_details.id as id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
             ->get();
             $total = 0;
@@ -110,17 +110,29 @@ $carts = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks
         return back()->with('success', 'Cart berhasil dikosongkan');
     }
 
-    public function checkout(Request $request )
+    public function checkout(Request $request)
     {
-        $itemuser = $request->user();
-        $itemcart = Cart::where('user_id', $itemuser->id)
-                        ->where('status_cart', 'cart')
-                        ->first();
+        // $itemuser = $request->user();
+        // $itemcart = Cart::where('user_id', $itemuser->id)
+        //                 ->where('status_cart', 'cart')
+        //                 ->first();
+        $cart = Cart::where('user_id', Auth::user()->id)
+            ->where('status_cart', 'cart')
+            ->first();
+
+        $carts = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
+            ->select('cart_details.id as id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
+            ->get();
+            $total = 0;
+            foreach ($carts as $c) {
+                $total += $c->total;
+            }
+        $itemcart = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
+            ->select('cart_details.id as id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
+            ->get();
         if ($itemcart) {
-            $data = array('title' => 'Checkout',
-                        'itemcart' => $itemcart,
-                    );
-            return view('cart.checkout', $data)->with('no', 1);
+            $data = array('title' => 'Shopping Cart', 'itemcart' => $itemcart, 'cart' => $cart, 'total' => $total,);
+            return view('user.cart.checkout', $data)->with('no', 1);
         } else {
             return abort('404');
         }
