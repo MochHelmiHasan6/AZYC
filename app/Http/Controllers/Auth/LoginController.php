@@ -30,11 +30,11 @@ class LoginController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
     public function redirectTo()
     {
-        if (Auth::user()->role == 'user') {
-            return $this->redirectTo = route('pengguna.index');
-        } else if (Auth::user()->role == 'admin') {
-            return $this->redirectTo = route('admin.index');
-        }
+        $for = [
+            'admin' => 'admin.index',
+            'user' => 'pengguna.index',
+        ];
+        return $this->redirectTo = route($for[auth()->user()->role]);
     }
 
     /**
