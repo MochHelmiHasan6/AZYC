@@ -112,10 +112,8 @@ class CartController extends Controller
 
     public function checkout(Request $request)
     {
-        // $itemuser = $request->user();
-        // $itemcart = Cart::where('user_id', $itemuser->id)
-        //                 ->where('status_cart', 'cart')
-        //                 ->first();
+        $tripay = new TripayController();
+        $channels = $tripay->getPaymentChannels();
         $cart = Cart::where('user_id', Auth::user()->id)
             ->where('status_cart', 'cart')
             ->first();
@@ -132,7 +130,7 @@ class CartController extends Controller
             ->get();
         if ($itemcart) {
             $data = array('title' => 'Shopping Cart', 'itemcart' => $itemcart, 'cart' => $cart, 'total' => $total,);
-            return view('user.cart.checkout', $data)->with('no', 1);
+            return view('user.cart.checkout', compact('channels'), $data)->with('no', 1);
         } else {
             return abort('404');
         }

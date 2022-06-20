@@ -10,7 +10,7 @@ use App\Http\Controllers\CartDetailController;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    return redirect()->route('pengguna.index');
+    return view('auth.login');
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'can:admin'])->group(function () {
@@ -25,9 +25,6 @@ Route::middleware(['auth:sanctum', 'verified', 'can:admin'])->group(function () 
 });
 
 Route::middleware(['auth:sanctum', 'verified', 'can:user'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
     Route::get('/beranda', [ProduksController::class, 'index'])->name('pengguna.index');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::get('/detail-jasa/{id}', [ProduksController::class, 'detail'])->name('detail-jasa');
