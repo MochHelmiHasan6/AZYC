@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left align-self-center">
-                            <h1 class="h1 text-success">Our <b>Office</b></h1>
+                            <h1 class="h1 text-success">Lokasi <b>Kantor</b></h1>
                             <h3 class="h2">AZYC NOMERATOR</h3>
                             <p>
                                 <strong>Alamat:</strong> Jl. Raya Ki Ageng Gribig No.234, Madyopuro,
@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left align-self-center">
-                            <h1 class="h1 text-success">Our <b>Client</b></h1>
+                            <h1 class="h1 text-success"><b>Klien</b> Kami</h1>
                             <h3 class="h2">HARRIS HOTEL & CONVENTIONS</h3>
                             <!-- <p>
                                 <strong>Kearsipan numerator</strong> adalah alat untuk membubuhkan nomor pada lembaran dokumen (cap nomor).
@@ -61,7 +61,7 @@
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left">
-                            <h1 class="h1 text-success">Our <b>Client</b></h1>
+                            <h1 class="h1 text-success"><b>Klien</b> Kami</b></h1>
                             <h3 class="h2">LAPANGAN RAMPAL</h3>
                             <!-- <p>
                                 <strong>Porporasi</strong> adalah deretan lubang yang digunakan untuk menyobek kertas agar potongan kertas sesuai pola porporasi.
@@ -80,7 +80,7 @@
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left">
-                            <h1 class="h1 text-success">Our <b>Client</b></h1>
+                            <h1 class="h1 text-success"><b>Klien</b> Kami</h1>
                             <h3 class="h2">PANTAI WISATA BALEKAMBANG</h3>
                             <!-- <p>
                                 <strong>Penjilidan</strong> adalah proses menyatukan rangkaian kertas-kertas secara berurutan ke dalam bentuk buku,
@@ -99,7 +99,7 @@
                     </div>
                     <div class="col-lg-6 mb-0 d-flex align-items-center">
                         <div class="text-align-left">
-                            <h1 class="h1 text-success">Our <b>Client</b></h1>
+                            <h1 class="h1 text-success"><b>Klien</b> Kami</h1>
                             <h3 class="h2">SEKOLAH KRISTEN PAMERDI</h3>
                             <!-- <p>
                                 <strong>Percetakan</strong> adalah sebuah proses industri untuk memproduksi secara massal tulisan dan gambar, terutama dengan tinta di atas kertas menggunakan sebuah mesin cetak.
@@ -125,7 +125,7 @@
 <section class="container py-5">
     <div class="row text-center pt-3">
         <div class="col-lg-6 m-auto">
-            <h1 class="h1">JASA AZYC Nomerator</h1>
+            <h1 class="h1">Jasa AZYC Nomerator</h1>
             {{-- <p>
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
                 deserunt mollit anim id est laborum.
