@@ -62,49 +62,23 @@
             </div>
           </div>
         </div>
-        <div class="col col-12">
+        <div class="col col-12 mb-2">
           <div class="card">
-            <div class="card-header">Alamat Pengiriman</div>
+            <div class="card-header">Form Data</div>
             <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-stripped">
-                  <thead>
-                    <tr>
-                      <th>Nama Penerima</th>
-                      <th>Alamat</th>
-                      <th>No tlp</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  @if($itemalamatpengiriman)
-                    <tr>
-                      <td>
-                        {{ $itemalamatpengiriman->nama_penerima }}
-                      </td>
-                      <td>
-                        {{ $itemalamatpengiriman->alamat }}<br />
-                        {{ $itemalamatpengiriman->kelurahan}}, {{ $itemalamatpengiriman->kecamatan}}<br />
-                        {{ $itemalamatpengiriman->kota}}, {{ $itemalamatpengiriman->provinsi}} - {{ $itemalamatpengiriman->kodepos}}
-                      </td>
-                      <td>
-                        {{ $itemalamatpengiriman->no_tlp }}
-                      </td>
-                      <td>
-                        <a href="{{ route('alamatpengiriman.index') }}" class="btn btn-success btn-sm">
-                          Ubah Alamat
-                        </a>
-                      </td>
-                    </tr>
-                  @endif
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <div class="card-footer">
-              <a href="{{ route('alamatpengiriman.index') }}" class="btn btn-sm btn-primary">
-                Tambah Alamat
-              </a>
+                <div class="col-md-12 mb-4">
+                    <label for="nama_penerima">Nama Lengkap *</label>
+                    <input type="text" class="form-control" name="nama_penerima" id="nama_penerima" value="" required>
+                </div>
+                <div class="col-12 mb-4">
+                    <label for="no_hp">No HP *</label>
+                    <input type="number" name="no_hp" class="form-control" id="phone_number" min="0"
+                        value="" required>
+                </div>
+                <div class="col-12 mb-4">
+                    <label for="alamat">Alamat *</label>
+                    <input type="text" class="form-control" name="alamat" id="alamat" value="" required>
+                </div>
             </div>
           </div>
         </div>
@@ -120,25 +94,13 @@
             <tr>
               <td>No Invoice</td>
               <td class="text-right">
-                {{ $itemcart->no_invoice }}
-              </td>
-            </tr>
-            <tr>
-              <td>Subtotal</td>
-              <td class="text-right">
-                {{ number_format($itemcart->subtotal, 2) }}
-              </td>
-            </tr>
-            <tr>
-              <td>Diskon</td>
-              <td class="text-right">
-                {{ number_format($itemcart->diskon, 2) }}
+                {{ $cart->no_invoice }}
               </td>
             </tr>
             <tr>
               <td>Total</td>
               <td class="text-right">
-                {{ number_format($itemcart->total, 2) }}
+                {{ number_format($total, 2) }}
               </td>
             </tr>
           </table>

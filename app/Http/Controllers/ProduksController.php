@@ -12,7 +12,7 @@ class ProduksController extends Controller
         return view('user.beranda',['jasa'=>$jasa]);
     }
 
-    public function transaksi($id){
+    public function detail($id){
         $jasa = Produk::where('slug','=',$id)->first();
         return view('user.transaksi', compact('jasa'));
     }

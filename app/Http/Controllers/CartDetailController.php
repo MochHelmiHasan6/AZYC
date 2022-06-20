@@ -78,7 +78,7 @@ class CartDetailController extends Controller
             $inputan['qty'] = $qty;
             $inputan['harga'] = $harga;
             $inputan['total'] = $total;
-            // $itemdetail = CartDetail::create($inputan);
+            $itemdetail = CartDetail::create($inputan);
             // update subtotal dan total di table cart
             // $itemdetail->cart->updatetotal($itemdetail->cart, $total);
         }

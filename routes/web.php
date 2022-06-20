@@ -30,10 +30,11 @@ Route::middleware(['auth:sanctum', 'verified', 'can:user'])->group(function () {
     })->name('dashboard');
     Route::get('/beranda', [ProduksController::class, 'index'])->name('pengguna.index');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-    Route::get('/detail-transaksi/{id}', [ProduksController::class, 'transaksi'])->name('transaksi');
+    Route::get('/detail-jasa/{id}', [ProduksController::class, 'detail'])->name('detail-jasa');
     Route::post('/updateQtyCart', [CartDetailController::class, 'updateQtyCart'])->name('updateQtyCart');
     Route::resource('cart', CartController::class);
     Route::post('/kosongkan/{id}', [CartController::class, 'kosongkan'])->name('kosongkan');
+    Route::get('/checkout/{id}', [CartController::class, 'checkout'])->name('checkout');
     // cart detail
     Route::resource('cartdetail', CartDetailController::class);
 
