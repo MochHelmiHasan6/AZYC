@@ -91,6 +91,17 @@
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                         Akun
                     </a>
+                    <a  class="nav-icon position-relative text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();" role="button">
+                        <i class="fa fa-sign-out text-dark mr-3"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        Logout 
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                style="display: none;">
+                                @csrf
+                        </form>
+                    </a>
+                                    
                 </div>
             </div>
 
