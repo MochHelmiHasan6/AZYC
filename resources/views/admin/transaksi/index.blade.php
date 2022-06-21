@@ -15,13 +15,13 @@
 <i class="mdi mdi-sitemap bg-inverse"></i>
 @endsection
 @section('titleHeader')
-Data Transaksi
+Data Pesanan
 @endsection
 @section('subtitleHeader')
-Data Transaksi
+Data Pesanan
 @endsection
 @section('breadcrumb')
-Data Transaksi
+Data Pesanan
 @endsection
 @section('content-wrapper')
 <!-- Content Wrapper. Contains page content -->
