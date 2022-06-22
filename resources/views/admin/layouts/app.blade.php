@@ -191,7 +191,7 @@
                 <div class="sidebar-header">
                     <a class="header-brand" href="#">
                         <div class="logo-img">
-                            <img src="{{url('assets/admin/img/logo_invert.png')}}" class="logo_invert" 
+                            <img src="{{url('assets/admin/img/logo_invert.png')}}" class="logo_invert"
                                 width="500%">
                         </div>
                     </a>
@@ -224,6 +224,13 @@
                                     <a href="{{route('user.index')}}"
                                         class="menu-item {{Route::is('user.index') || Route::is('user.create') || Route::is('user.edit')  ? 'active' : ''}}"><i
                                             class="mdi mdi-account"></i> User</a>
+                            </div>
+
+                            <div
+                                class="nav-item {{Route::is('rekap.index')}}">
+                                    <a href="{{route('rekap.index')}}"
+                                        class="menu-item {{Route::is('rekap.index')}}"><i
+                                            class="mdi mdi-account"></i> Rekapitulasi</a>
                             </div>
 
                         </nav>
