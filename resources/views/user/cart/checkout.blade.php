@@ -90,14 +90,17 @@
                                 @foreach ($channels as $channel)
                                 @if ($channel->active)
                                 <div class="col-sm-4 mb-4">
-                                    <a>
-                                        <div class="bg-white bg-gradient rounded shadow-soft border border-primary d-flex justify-content-center">
-                                            <div>
-                                                <img src="" alt="">
-                                                <p class="mt-3 text-xs text-grey-600">{{$channel->name}}</p>
+                                    <form action="{{route('transaksi.store')}}">
+                                        @csrf
+                                        {{-- <button type="submit"> --}}
+                                            <div class="bg-white bg-gradient rounded shadow-soft border border-primary d-flex justify-content-center">
+                                                <div>
+                                                    <img src="" alt="">
+                                                    <p class="mt-3 text-xs text-grey-600">{{$channel->name}}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
+                                        {{-- </button> --}}
+                                    </form>
                                 </div>
                                 @endif
                                 @endforeach

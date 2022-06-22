@@ -77,6 +77,7 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $table = new Transaksi();
         $table->id = 'transaksi-' . Str::random(3) . '-' . Carbon::now()->format('YmdHis');
         $table->user_id = $request->user_id;
