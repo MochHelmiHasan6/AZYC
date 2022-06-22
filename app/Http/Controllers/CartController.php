@@ -99,7 +99,6 @@ class CartController extends Controller
 
         $response = curl_exec($curl);
         $error = curl_error($curl);
-        return response()->json($response);
         curl_close($curl);
 
         echo empty($error) ? $response : $error;
