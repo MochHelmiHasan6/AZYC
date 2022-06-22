@@ -24,10 +24,10 @@ class CartController extends Controller
         $carts = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
             ->select('cart_details.id as id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
             ->get();
-            $total = 0;
-            foreach ($carts as $c) {
-                $total += $c->total;
-            }
+        $total = 0;
+        foreach ($carts as $c) {
+            $total += $c->total;
+        }
         $itemcart = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
             ->select('cart_details.id as id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
             ->get();
@@ -56,7 +56,6 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -118,13 +117,14 @@ class CartController extends Controller
             ->where('status_cart', 'cart')
             ->first();
 
+
         $carts = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
             ->select('cart_details.id as id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
             ->get();
-            $total = 0;
-            foreach ($carts as $c) {
-                $total += $c->total;
-            }
+        $total = 0;
+        foreach ($carts as $c) {
+            $total += $c->total;
+        }
         $itemcart = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
             ->select('cart_details.id as id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
             ->get();
