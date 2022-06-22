@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\CartDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
@@ -56,6 +57,52 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
+        $cart = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
+            ->select('cart_details.id as sku', 'produks.name as name', 'cart_details.qty as quantity', 'cart_details.harga as price', 'cart_details.cart_id as cart_id',)
+            ->where('cart_details.cart_id', $request->cart_id)
+            ->get();
+        foreach ($cart as $object) {
+            $order_items[] = $object->toArray();
+        }
+
+        $apiKey       = config('tripay.api_key');
+        $privateKey   = config('tripay.private_key');
+        $merchantCode = config('tripay.merchant_code');
+        $merchantRef  = 'INV-' . time();
+        $method       =  $request->channel;
+        $amount  = $request->total;
+        $data = [
+            'method'         => $method,
+            'merchant_ref'   => $merchantRef,
+            'amount'         => $amount,
+            'customer_name'  => $request->nama_penerima,
+            'customer_email' => Auth::user()->email,
+            'customer_phone' => $request->no_hp,
+            'order_items'    => $order_items,
+            'expired_time' => (time() + (24 * 60 * 60)), // 24 jam
+            'signature'    => hash_hmac('sha256', $merchantCode . $merchantRef . $amount, $privateKey)
+        ];
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, [
+            CURLOPT_FRESH_CONNECT  => true,
+            CURLOPT_URL            => 'https://tripay.co.id/api-sandbox/transaction/create',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HEADER         => false,
+            CURLOPT_HTTPHEADER     => ['Authorization: Bearer ' . $apiKey],
+            CURLOPT_FAILONERROR    => false,
+            CURLOPT_POST           => true,
+            CURLOPT_POSTFIELDS     => http_build_query($data),
+            CURLOPT_IPRESOLVE      => CURL_IPRESOLVE_V4
+        ]);
+
+        $response = curl_exec($curl);
+        $error = curl_error($curl);
+        return response()->json($response);
+        curl_close($curl);
+
+        echo empty($error) ? $response : $error;
     }
 
     /**
@@ -109,7 +156,7 @@ class CartController extends Controller
         return back()->with('success', 'Cart berhasil dikosongkan');
     }
 
-    public function checkout(Request $request)
+    public function checkout(Request $request, $id)
     {
         $tripay = new TripayController();
         $channels = $tripay->getPaymentChannels();
@@ -119,7 +166,8 @@ class CartController extends Controller
 
 
         $carts = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
-            ->select('cart_details.id as id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
+            ->select('cart_details.id as id', 'cart_details.cart_id as cart_id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
+            ->where('cart_details.cart_id', $id)
             ->get();
         $total = 0;
         foreach ($carts as $c) {
@@ -130,7 +178,7 @@ class CartController extends Controller
             ->get();
         if ($itemcart) {
             $data = array('title' => 'Shopping Cart', 'itemcart' => $itemcart, 'cart' => $cart, 'total' => $total,);
-            return view('user.cart.checkout', compact('channels'), $data)->with('no', 1);
+            return view('user.cart.checkout', compact('channels', 'id'), $data)->with('no', 1);
         } else {
             return abort('404');
         }

@@ -14,6 +14,7 @@
 <div class="container">
 
     <form action="{{ route('cart.store') }}" method="post">
+        <input type="hidden" name="cart_id" value="{{$id}}">
         @csrf
         <div class="row">
             <div class="col col-8">
@@ -146,6 +147,7 @@
                             </tr>
                             <tr>
                                 <td>Total</td>
+                                <input type="hidden" name="total" value="{{$total}}">
                                 <td class="text-right">
                                     {{ number_format($total, 2) }}
                                 </td>
