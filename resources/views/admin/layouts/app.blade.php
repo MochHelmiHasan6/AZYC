@@ -206,6 +206,13 @@
                             </div> --}}
 
                             <div
+                                class="nav-item {{Route::is('user.index') || Route::is('user.create') || Route::is('user.edit') ? 'active' : ''}}">
+                                    <a href="{{route('user.index')}}"
+                                        class="menu-item {{Route::is('user.index') || Route::is('user.create') || Route::is('user.edit')  ? 'active' : ''}}"><i
+                                            class="mdi mdi-account"></i> User</a>
+                            </div>
+
+                            <div
                                 class="nav-item {{Route::is('produk.index') || Route::is('produk.create') || Route::is('produk.edit') ? 'active' : ''}}">
                                     <a href="{{route('produk.index')}}"
                                         class="menu-item {{Route::is('produk.index') || Route::is('produk.create') || Route::is('produk.edit')  ? 'active' : ''}}"><i
@@ -216,15 +223,10 @@
                                 class="nav-item {{Route::is('transaksi.index') || Route::is('transaksi.create') || Route::is('transaksi.edit') ? 'active' : ''}}">
                                     <a href="{{route('transaksi.index')}}"
                                         class="menu-item {{Route::is('transaksi.index') || Route::is('transaksi.create') || Route::is('transaksi.edit')  ? 'active' : ''}}"><i
-                                            class="mdi mdi-credit-card"></i> Transaksi</a>
+                                            class="mdi mdi-credit-card"></i> Pesanan</a>
                             </div>
 
-                            <div
-                                class="nav-item {{Route::is('user.index') || Route::is('user.create') || Route::is('user.edit') ? 'active' : ''}}">
-                                    <a href="{{route('user.index')}}"
-                                        class="menu-item {{Route::is('user.index') || Route::is('user.create') || Route::is('user.edit')  ? 'active' : ''}}"><i
-                                            class="mdi mdi-account"></i> User</a>
-                            </div>
+                            
 
                             <div
                                 class="nav-item {{Route::is('rekap.index')}}">

@@ -3,13 +3,13 @@
 <link rel="stylesheet" href="{{url('assets/admin/plugins/select2/dist/css/select2.min.css')}}">
 @endsection
 @section('titleHeader')
-Data Transaksi
+Data Pesanan
 @endsection
 @section('subtitleHeader')
-Tambah Transaksi
+Tambah Pesanan
 @endsection
 @section('breadcrumb')
-Data Transaksi
+Data Pesanan
 @endsection
 @section('content-wrapper')
 <input class="js-dynamic-enable" type="hidden"/>

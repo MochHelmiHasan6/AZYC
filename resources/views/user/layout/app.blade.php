@@ -91,6 +91,17 @@
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                         Akun
                     </a>
+                    <a  class="nav-icon position-relative text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();" role="button">
+                        <i class="fa fa-sign-out text-dark mr-3"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                        Logout 
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                style="display: none;">
+                                @csrf
+                        </form>
+                    </a>
+                                    
                 </div>
             </div>
 
@@ -151,7 +162,7 @@
                 </div>
 
                 <div class="col-md-8 pt-5">
-                    <h2 class="h2 text-light border-bottom pb-3 border-light">Location</h2>
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Lokasi</h2>
                     <ul class="list-unstyled text-light footer-link-list">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.1632702688757!2d112.65958381744383!3d-7.982068499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd62860d2621563%3A0xcab08ca5b95bac78!2sAzyc%20Nomerator!5e0!3m2!1sen!2sid!4v1653618429897!5m2!1sen!2sid" width="720" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </ul>
