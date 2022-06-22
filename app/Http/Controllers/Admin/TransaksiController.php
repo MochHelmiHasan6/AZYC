@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\TransaksiExport;
 use App\Http\Controllers\Controller;
 use App\Models\Transaksi;
 use App\Models\User;
@@ -10,6 +11,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 use \Yajra\Datatables\Datatables;
 
 class TransaksiController extends Controller
@@ -52,10 +54,27 @@ class TransaksiController extends Controller
                     $btn = 'Rp. ' . number_format($data->paid_total, 2);
                     return $btn;
                 })
-                ->rawColumns(['action','paid_total'])
+                ->rawColumns(['action', 'paid_total'])
                 ->make(true);
         }
         return view('admin.transaksi.index');
+    }
+
+    public function report()
+    {
+        $countData = DB::table('transaksis')
+            ->leftJoin('users', 'transaksis.user_id', '=', 'users.id')
+            // ->where(kolomtanggal , '>=', request('from_date'))  
+            // ->where(kolomtanggal , '<=', request('to_date'))  
+            ->count();
+
+        if (request('from_date') > request('to_date')) {
+            return redirect()->route('transaksi.index');
+        } else if (!($countData > 0)) {
+            return redirect()->route('transaksi.index');
+        } else {
+            return Excel::download(new TransaksiExport(request('from_date'), request('to_date')), 'Laporan Transaksi ' . request('from_date') . ' - ' . request('to_date') . '.xlsx');
+        }
     }
 
     /**
