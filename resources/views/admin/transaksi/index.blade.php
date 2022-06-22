@@ -31,6 +31,33 @@ Data Transaksi
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card-body">
+                        {{-- report --}}
+                        <form action="{{ route('transaksi.report') }}" method="GET">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-4 mb-1">
+                                        <label for="date">From</label>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input required type="date" name="from_date" id="from_date" class="form-control" placeholder="Choose a date" id="password-id-icon" value="{{ request('from_date') }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 mb-1">
+                                        <label for="date">To</label>
+                                        <div class="input-group input-group-sm mb-3">
+                                            <input required type="date" name="to_date" id="to_date" class="form-control" placeholder="Choose a date" id="password-id-icon" value="{{ request('to_date') }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 mb-1">
+                                        <div class="input-group input-group-sm mb-3 mt-4">
+                                            <button type="submit" class="btn btn-success">Print</button>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </form>
+                        {{--  --}}
+                        
                         <div class="dt-responsive">
                             <table id="dataTable" class="table table-striped table-bordered nowrap" style="width: 102%">
                                 <thead>

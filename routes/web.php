@@ -16,6 +16,7 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified', 'can:admin'])->group(function () {
     Route::prefix('admin-page')->group(function () {
         Route::get('/home', [UserController::class, 'index'])->name('admin.index');
+        Route::get('/transaksi/report', [TransaksiController::class, 'report'])->name('transaksi.report');
         Route::resources([
             'user' => UserController::class,
             'produk' => ProdukController::class,
@@ -36,7 +37,6 @@ Route::middleware(['auth:sanctum', 'verified', 'can:user'])->group(function () {
     Route::post('/kosongkan/{id}', [CartController::class, 'kosongkan'])->name('kosongkan');
     // cart detail
     Route::resource('cartdetail', CartDetailController::class);
-
 });
 
 Auth::routes();
