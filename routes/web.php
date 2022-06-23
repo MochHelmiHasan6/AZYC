@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProdukController;
@@ -15,9 +16,10 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum', 'verified', 'can:admin'])->group(function () {
     Route::prefix('admin-page')->group(function () {
-        Route::get('/home', [UserController::class, 'index'])->name('admin.index');
+        Route::get('/home', [DashboardController::class, 'index'])->name('admin.index');
         Route::get('/transaksi/report', [TransaksiController::class, 'report'])->name('transaksi.report');
         Route::resources([
+            'dashboard' => DashboardController::class,
             'user' => UserController::class,
             'produk' => ProdukController::class,
             'transaksi' => TransaksiController::class,

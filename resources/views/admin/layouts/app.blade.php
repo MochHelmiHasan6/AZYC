@@ -201,9 +201,9 @@
                 <div class="sidebar-content">
                     <div class="nav-container">
                         <nav id="main-menu-navigation" class="navigation-main">
-                            {{-- <div class="nav-item">
+                            <div class="nav-item">
                                 <a href="{{route('dashboard.index')}}"><i class="ik ik-bar-chart-2"></i><span>Dashboard</span></a>
-                            </div> --}}
+                            </div>
 
                             <div
                                 class="nav-item {{Route::is('user.index') || Route::is('user.create') || Route::is('user.edit') ? 'active' : ''}}">
@@ -224,15 +224,6 @@
                                     <a href="{{route('transaksi.index')}}"
                                         class="menu-item {{Route::is('transaksi.index') || Route::is('transaksi.create') || Route::is('transaksi.edit')  ? 'active' : ''}}"><i
                                             class="mdi mdi-credit-card"></i> Pesanan</a>
-                            </div>
-
-                            
-
-                            <div
-                                class="nav-item {{Route::is('rekap.index')}}">
-                                    <a href="{{route('rekap.index')}}"
-                                        class="menu-item {{Route::is('rekap.index')}}"><i
-                                            class="mdi mdi-account"></i> Rekapitulasi</a>
                             </div>
 
                         </nav>

@@ -137,7 +137,7 @@
         <div class="col-12 col-md-3 p-5 mt-3">
             <a href="{{ route('detail-jasa',$data->slug) }}"><img src="{{$data->image}}" class="rounded" width="250" height="125"></a>
             <h5 class="text-center mt-3 mb-3">{{$data->name}}</h5>
-            <p class="text-center"><a class="btn btn-success" href="{{ route('detail-jasa',$data->slug) }}">RP. {{$data->price}}</a></p>
+            <p class="text-center"><a class="btn btn-success" href="{{ route('detail-jasa',$data->slug) }}">RP. {{number_format($data->price)}}</a></p>
         </div>
         @endforeach
     </div>
