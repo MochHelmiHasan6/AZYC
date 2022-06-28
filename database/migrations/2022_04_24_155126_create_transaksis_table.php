@@ -16,8 +16,10 @@ class CreateTransaksisTable extends Migration
         Schema::create('transaksis', function (Blueprint $table) {
             $table->char('id', 30)->primary();
             $table->foreignId('user_id');
+            $table->string('reference');
+            $table->string('merchant_ref');
             $table->integer('paid_total');
-            $table->string('status');
+            $table->enum('status', ['paid', 'unpaid'])->default('unpaid');
             $table->string('address');
             $table->string('no_hp');
             $table->timestamps();

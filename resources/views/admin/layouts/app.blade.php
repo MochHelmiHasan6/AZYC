@@ -189,7 +189,7 @@
         <div class="page-wrap">
             <div class="app-sidebar colored">
                 <div class="sidebar-header">
-                    <a class="header-brand" href="#">
+                    <a class="header-brand" href="{{route('dashboard.index')}}">
                         <div class="logo-img">
                             <img src="{{url('assets/admin/img/logo_invert.png')}}" class="logo_invert"
                                 width="500%">
