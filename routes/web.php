@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\ProduksController;
 use App\Http\Controllers\Admin\TransaksiController;
+use App\Http\Controllers\CallbackController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartDetailController;
 use Illuminate\Support\Facades\Auth;
@@ -39,6 +40,8 @@ Route::middleware(['auth:sanctum', 'verified', 'can:user'])->group(function () {
     // cart detail
     Route::resource('cartdetail', CartDetailController::class);
 });
+
+Route::post('callback', [CallbackController::class, 'handle'])->name('callback');
 
 Auth::routes();
 

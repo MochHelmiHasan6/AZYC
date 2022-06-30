@@ -52,18 +52,20 @@ Data Pesanan
                                             <button type="submit" class="btn btn-success">Print</button>
                                         </div>
                                     </div>
-    
+
                                 </div>
                             </div>
                         </form>
                         {{--  --}}
-                        
+
                         <div class="dt-responsive">
                             <table id="dataTable" class="table table-striped table-bordered nowrap" style="width: 102%">
                                 <thead>
                                     <tr>
                                         <th style="width: 3%"></th>
                                         <th>User</th>
+                                        <th>Reference</th>
+                                        <th>Merchant Reference</th>
                                         <th>Total Bayar</th>
                                         <th>Status</th>
                                         <th>Alamat</th>
@@ -76,6 +78,8 @@ Data Pesanan
                                     <tr>
                                         <td></td>
                                         <th>User</th>
+                                        <th>Reference</th>
+                                        <th>Merchant Reference</th>
                                         <th>Total Bayar</th>
                                         <th>Status</th>
                                         <th>Alamat</th>
@@ -175,6 +179,14 @@ Data Pesanan
                 {
                     data: 'user_name',
                     name: 'users.name'
+                },
+                {
+                    data: 'reference',
+                    name: 'reference'
+                },
+                {
+                    data: 'merchant_ref',
+                    name: 'merchant_ref'
                 },
                 {
                     data: 'paid_total',

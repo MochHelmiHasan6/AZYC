@@ -34,8 +34,8 @@ class TransaksiExport implements WithEvents, WithColumnWidths
             'F' => 25,
             'G' => 15,
             'H' => 25,
-            // 'I' => 20,
-            // 'J' => 15,
+            'I' => 20,
+            'J' => 15,
             // 'K' => 18,
             // 'L' => 30,
         ];
@@ -83,8 +83,8 @@ class TransaksiExport implements WithEvents, WithColumnWidths
         ];
         return [
             AfterSheet::class => function (AfterSheet $event) use ($styleTitle, $styleData, $styleColumn) {
-                $event->sheet->setCellValue('A1', 'Azyc Nomerator')->getStyle('A1')->applyFromArray($styleTitle);
-                $event->sheet->setCellValue('A2', '(Alamat)');
+                $event->sheet->setCellValue('A1', 'AZYC Nomerator')->getStyle('A1')->applyFromArray($styleTitle);
+                $event->sheet->setCellValue('A2', 'Jl. Raya Ki Ageng Gribig No.234, Madyopuro, Kec. Kedungkandang, Kota Malang, Jawa Timur 65138');
 
                 $event->sheet->setCellValue('A4', 'Laporan Transaksi')->getStyle('A4')->applyFromArray($styleTitle);
 
@@ -93,23 +93,27 @@ class TransaksiExport implements WithEvents, WithColumnWidths
                 $event->sheet->setCellValue('B6', 'NO')->getStyle('B6')->applyFromArray($styleColumn);
                 $event->sheet->setCellValue('C6', 'Tanggal')->getStyle('C6')->applyFromArray($styleColumn);
                 $event->sheet->setCellValue('D6', 'User')->getStyle('D6')->applyFromArray($styleColumn);
-                $event->sheet->setCellValue('E6', 'Total Bayar')->getStyle('E6')->applyFromArray($styleColumn);
-                $event->sheet->setCellValue('F6', 'Status')->getStyle('F6')->applyFromArray($styleColumn);
-                $event->sheet->setCellValue('G6', 'Alamat')->getStyle('G6')->applyFromArray($styleColumn);
-                $event->sheet->setCellValue('H6', 'No Hp')->getStyle('H6')->applyFromArray($styleColumn);
+                $event->sheet->setCellValue('E6', 'Reference')->getStyle('E6')->applyFromArray($styleColumn);
+                $event->sheet->setCellValue('F6', 'Merchant Reference')->getStyle('F6')->applyFromArray($styleColumn);
+                $event->sheet->setCellValue('G6', 'Total Bayar')->getStyle('G6')->applyFromArray($styleColumn);
+                $event->sheet->setCellValue('H6', 'Status')->getStyle('H6')->applyFromArray($styleColumn);
+                $event->sheet->setCellValue('I6', 'Alamat')->getStyle('I6')->applyFromArray($styleColumn);
+                $event->sheet->setCellValue('J6', 'No Hp')->getStyle('J6')->applyFromArray($styleColumn);
 
                 $datas = Transaksi::getData($this->from_date, $this->to_date);
                 $cell = 7;
                 $i = 1;
                 foreach ($datas as $data) {
-                    $event->sheet->getStyle('B' . $cell . ':' . 'H' . $cell)->applyFromArray($styleData);
+                    $event->sheet->getStyle('B' . $cell . ':' . 'J' . $cell)->applyFromArray($styleData);
                     $event->sheet->setCellValue('B' . $cell, $i);
                     $event->sheet->setCellValue('C' . $cell, $data->created_at);
                     $event->sheet->setCellValue('D' . $cell, $data->user_name);
-                    $event->sheet->setCellValue('E' . $cell, $data->paid_total);
-                    $event->sheet->setCellValue('F' . $cell, $data->status);
-                    $event->sheet->setCellValue('G' . $cell, $data->address);
-                    $event->sheet->setCellValue('H' . $cell, $data->no_hp);
+                    $event->sheet->setCellValue('E' . $cell, $data->reference);
+                    $event->sheet->setCellValue('F' . $cell, $data->merchant_ref);
+                    $event->sheet->setCellValue('G' . $cell, $data->paid_total);
+                    $event->sheet->setCellValue('H' . $cell, $data->status);
+                    $event->sheet->setCellValue('I' . $cell, $data->address);
+                    $event->sheet->setCellValue('J' . $cell, $data->no_hp);
                     $i++;
                     $cell++;
                 }

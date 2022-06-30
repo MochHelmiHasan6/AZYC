@@ -26,7 +26,7 @@ class TransaksiController extends Controller
         if ($request->ajax()) {
             $data = DB::table('transaksis')
                 ->leftJoin('users', 'transaksis.user_id', '=', 'users.id')
-                ->select(['transaksis.id', 'users.name as user_name',  'transaksis.paid_total', 'transaksis.status', 'transaksis.address', 'transaksis.no_hp']);
+                ->select(['transaksis.id', 'users.name as user_name',  'transaksis.reference', 'transaksis.merchant_ref', 'transaksis.paid_total', 'transaksis.status', 'transaksis.address', 'transaksis.no_hp']);
 
             return Datatables::of($data)
                 ->addIndexColumn()
@@ -64,8 +64,8 @@ class TransaksiController extends Controller
     {
         $countData = DB::table('transaksis')
             ->leftJoin('users', 'transaksis.user_id', '=', 'users.id')
-            // ->where(kolomtanggal , '>=', request('from_date'))  
-            // ->where(kolomtanggal , '<=', request('to_date'))  
+            ->where('transaksis.created_at' , '>=', request('from_date'))
+            ->where('transaksis.created_at' , '<=', request('to_date'))
             ->count();
 
         if (request('from_date') > request('to_date')) {
