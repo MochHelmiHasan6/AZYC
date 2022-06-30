@@ -113,7 +113,7 @@ class CallbackController extends Controller
             }
 
             // Lakukan validasi nominal
-            if ($data->total_amount !== $order->amount) {
+            if ($data->total_amount !== $order->paid_total) {
                 return "Invalid amount";
             }
 

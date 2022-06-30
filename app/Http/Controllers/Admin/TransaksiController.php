@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
@@ -145,6 +146,8 @@ class TransaksiController extends Controller
     {
         $table = Transaksi::find($id);
         $table->user_id = $request->user_id;
+        $table->reference = $request->reference;
+        $table->merchant_ref = $request->merchant_ref;
         $table->paid_total = $request->paid_total;
         $table->status = $request->status;
         $table->address = $request->address;
@@ -166,5 +169,15 @@ class TransaksiController extends Controller
         $table = Transaksi::find($request->id);
         $table->delete();
         return redirect()->route('transaksi.index');
+    }
+
+    public function riwayat(Request $request)
+    {
+        $data = Transaksi::leftJoin('users', 'transaksis.user_id', '=', 'users.id')
+        ->select('transaksis.id', 'users.name as user_name',  'transaksis.reference', 'transaksis.merchant_ref', 'transaksis.paid_total', 'transaksis.status', 'transaksis.address', 'transaksis.no_hp')
+        ->where('user_id', Auth::user()->id)
+        ->get();
+
+        return view('user.riwayat', compact('data'));
     }
 }

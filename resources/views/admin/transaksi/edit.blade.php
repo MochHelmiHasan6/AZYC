@@ -44,6 +44,30 @@ Pesanan
                     </div>
 
                     <div class="form-group">
+                        <label>Reference</label>
+                        <div class="input-group">
+                            <span class="input-group-prepend">
+                                <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Reference" value="{{$data->reference}}" disabled>
+
+                        <input type="hidden" name="reference" class="reference" value="{{$data->reference}}" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Merchant Reference</label>
+                        <div class="input-group">
+                            <span class="input-group-prepend">
+                                <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
+                            </span>
+                            <input type="text" class="form-control" placeholder="Merchant Reference" value="{{$data->merchant_ref}}" disabled>
+
+                        <input type="hidden" name="merchant_ref" class="merchant_ref" value="{{$data->merchant_ref}}" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label>Total Bayar</label>
                         <div class="input-group">
                             <span class="input-group-prepend">
@@ -62,10 +86,8 @@ Pesanan
                                 <label class="input-group-text"><i class="ik ik-edit-1"></i></label>
                             </span>
                             <select name="status" class="select2 form-control" id="default-select">
-                                <option value="Cancel" {{$data->status == "Cancel" ? 'selected' : ''}}>Cancel</option>
-                                <option value="Process" {{$data->status == "Process" ? 'selected' : ''}}>Process</option>
-                                <option value="Complete" {{$data->status == "Complete" ? 'selected' : ''}}>Complete</option>
-                                <option value="Pending" {{$data->status == "Pending" ? 'selected' : ''}}>Pending</option>
+                                <option value="UNPAID" {{$data->status == "UNPAID" ? 'selected' : ''}}>UNPAID</option>
+                                <option value="PAID" {{$data->status == "PAID" ? 'selected' : ''}}>PAID</option>
                         </select>
                         </div>
                     </div>

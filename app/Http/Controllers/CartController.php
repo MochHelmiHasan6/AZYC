@@ -24,19 +24,27 @@ class CartController extends Controller
         ->where('status_cart', 'cart')
         ->first();
 
-        $carts = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
-        ->select('cart_details.id as id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
+        $countcart = Cart::where('user_id', Auth::user()->id)
+        ->where('status_cart', 'cart')
+        ->count();
+
+        $carts = CartDetail::leftJoin('carts', 'cart_details.cart_id', '=', 'carts.id')
+        ->leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
+        ->select('cart_details.id as id', 'carts.id as cart_id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
+        ->where('carts.status_cart', 'cart')
         ->get();
         $total = 0;
         foreach ($carts as $c) {
             $total += $c->total;
         }
-        $itemcart = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
-        ->select('cart_details.id as id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
+        $itemcart = CartDetail::leftJoin('carts', 'cart_details.cart_id', '=', 'carts.id')
+        ->leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
+        ->select('cart_details.id as id', 'carts.id as cart_id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
+        ->where('carts.status_cart', 'cart')
         ->get();
 
         // dd($itemcart);
-        $data = array('title' => 'Shopping Cart', 'itemcart' => $itemcart, 'cart' => $cart, 'total' => $total,);
+        $data = array('title' => 'Shopping Cart', 'itemcart' => $itemcart, 'cart' => $cart, 'total' => $total, 'countcart' => $countcart);
 
         return view('user.cart.index', $data)->with('no', 1);
     }
@@ -116,7 +124,11 @@ class CartController extends Controller
         $table->address = $request->alamat;
         $table->no_hp = $request->no_hp;
 
-        $table->save();
+        if($table->save()){
+            Cart::where('user_id', '=', Auth::user()->id)
+                    ->where('status_cart', '=', 'cart')
+                    ->update(['status_cart' => 'checkout']);
+        }
 
 
         return redirect()->route('detailpembayaran', [
@@ -192,8 +204,10 @@ class CartController extends Controller
         foreach ($carts as $c) {
             $total += $c->total;
         }
-        $itemcart = CartDetail::leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
-        ->select('cart_details.id as id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
+        $itemcart = CartDetail::leftJoin('carts', 'cart_details.cart_id', '=', 'carts.id')
+        ->leftJoin('produks', 'cart_details.produk_id', '=', 'produks.id')
+        ->select('cart_details.id as id', 'carts.id as cart_id', 'produks.name as name', 'cart_details.qty as qty', 'cart_details.harga as harga', 'cart_details.total as total')
+        ->where('carts.status_cart', 'cart')
         ->get();
         if ($itemcart) {
             $data = array('title' => 'Shopping Cart', 'itemcart' => $itemcart, 'cart' => $cart, 'total' => $total,);

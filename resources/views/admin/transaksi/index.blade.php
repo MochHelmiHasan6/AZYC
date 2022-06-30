@@ -49,7 +49,7 @@ Data Pesanan
                                     </div>
                                     <div class="col-sm-4 mb-1">
                                         <div class="input-group input-group-sm mb-3 mt-4">
-                                            <button type="submit" class="btn btn-success">Print</button>
+                                            <button type="submit" class="btn btn-success">Download Rekap</button>
                                         </div>
                                     </div>
 

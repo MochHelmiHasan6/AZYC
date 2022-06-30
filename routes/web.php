@@ -37,6 +37,7 @@ Route::middleware(['auth:sanctum', 'verified', 'can:user'])->group(function () {
     Route::resource('cart', CartController::class);
     Route::post('/kosongkan/{id}', [CartController::class, 'kosongkan'])->name('kosongkan');
     Route::get('/checkout/{id}', [CartController::class, 'checkout'])->name('checkout');
+    Route::get('/riwayat', [TransaksiController::class, 'riwayat'])->name('riwayat');
     // cart detail
     Route::resource('cartdetail', CartDetailController::class);
 });

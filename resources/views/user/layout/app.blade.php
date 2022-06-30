@@ -5,6 +5,7 @@
     <title>AZYC Nomerator</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="apple-touch-icon" href="{{url('assets/admin/img/logo_ori.png')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{url('assets/admin/img/logo_ori.png')}}">
@@ -64,7 +65,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{ route('riwayat') }}">
                                 <i class="fa fa-history"></i> Riwayat Pembayaran
                             </a>
                         </li>
@@ -97,7 +98,7 @@
                     </a>
                     <a  class="nav-icon position-relative text-decoration-none" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();" role="button">
-                    <i class="fa fa-sign-out text-dark mr-1"></i>
+                    <i class="fas fa-sign-out-alt text-dark mr-1"></i>
                     <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                     Logout
                     <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -226,6 +227,6 @@
 <script src="{{url('assets/frontend/js/custom.js')}}"></script>
 <!-- End Script -->
 @yield('footer')
-</body>
-
-</html>
+}"></script>
+    <!-- End Script -->
+    @yield('footer')

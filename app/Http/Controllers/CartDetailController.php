@@ -53,7 +53,7 @@ class CartDetailController extends Controller
             $no_invoice = Cart::where('user_id', $itemuser->id)->count();
             //nyari jumlah cart berdasarkan user yang sedang login untuk dibuat no invoice
             $inputancart['user_id'] = $itemuser->id;
-            $inputancart['no_invoice'] = 'INV ' . str_pad(($no_invoice + 1), '3', '0', STR_PAD_LEFT);
+            $inputancart['no_invoice'] = 'INV ' . time();
             $inputancart['status_cart'] = 'cart';
             // $inputancart['status_pembayaran'] = 'belum';
             $itemcart = Cart::create($inputancart);
