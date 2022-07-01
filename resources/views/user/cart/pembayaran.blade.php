@@ -21,7 +21,7 @@
                             @foreach ($detail->instructions as $instruction)
                             <button type="button" class="btn btn-primary mb-4" data-toggle="collapse" data-target="#demo">{{$instruction->title}}</button>
                             <div id="demo" class="collapse mb-4">
-                                @if ($detail->payment_method == 'QRISD' || 'QRIS')
+                                @if ($detail->payment_method == 'QRISD' || $detail->payment_method == 'QRIS')
                                     <img src={{$detail->qr_url}} alt="">
                                 @endif
                                 @if ($detail->payment_method == 'OVO')
